@@ -1,5 +1,5 @@
 #!/usr/bin/python3
 def print_last_digit(number):
-    num = repr(number)[-1]
-    print(f"{num}", end="")
+    num = int(repr(number)[-1])
+    print("{}".format(num), end="")
     return num
