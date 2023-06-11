@@ -7,4 +7,6 @@ def best_score(a_dictionary):
             if val > big_value:
                 big_value = val
                 key = k
-        return key
+        if key:
+            return key
+        return None
