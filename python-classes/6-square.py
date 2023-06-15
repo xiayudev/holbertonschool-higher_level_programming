@@ -21,6 +21,23 @@ class Square:
         """The getter method that returns the size of the square"""
         return self.__size
 
+    @size.setter
+    def size(self, value):
+        """Check size if it is integer
+
+        If size is not integer or it is less than zero raise an exception.
+
+        Args:
+            value (int): The size to be checked
+
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
+
     @property
     def position(self):
         """The getter method that returns the position of the square"""
@@ -38,28 +55,12 @@ class Square:
         """
         val_1 = isinstance(value[0], int)
         val_2 = isinstance(value[1], int)
-        if not val_1 or not val_2 or len(value) != 2 or type(value) != tuple \
+        if not val_1 or not val_2 or len(value) != 2 \
+                or not isinstance(value, tuple) \
                 or not value[0] >= 0 or not value[1] >= 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
-
-    @size.setter
-    def size(self, value):
-        """Check size if it is integer
-
-        If size is not integer or it is less than zero raise an exception.
-
-        Args:
-            value (int): The size to be checked
-
-        """
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        elif value < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
 
     def area(self):
         """Calculate the area of a square
