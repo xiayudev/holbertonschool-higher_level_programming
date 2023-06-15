@@ -6,11 +6,11 @@ class Square:
     """A class with a constructor and an instance attribute size"""
 
     def __init__(self, size=0, position=(0, 0)):
-        """Constructor of the class with one argument
+        """Constructor of the class with two arguments
 
         Args:
             size (int): The size of the square
-            position (tuple): The coordinates if the square
+            position (tuple): The coordinates of the square
 
         """
         self.size = size
@@ -76,9 +76,8 @@ class Square:
         if self.size == 0:
             print()
         else:
-            if self.position[1] > 0:
-                for n in range(self.position[1]):
-                    print()
+            for n in range(self.position[1]):
+                print()
             for x in range(self.size):
                 for m in range(self.position[0]):
                     print(" ", end="")
