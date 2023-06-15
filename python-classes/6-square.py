@@ -53,8 +53,9 @@ class Square:
             value (tuple): The position of the square
 
         """
-        if type(value[0]) != int or type(value[1]) != int or len(value) != 2 \
-                or not isinstance(value, tuple) \
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif type(value[0]) != int or type(value[1]) != int \
                 or  value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
@@ -67,7 +68,7 @@ class Square:
             int: The area of a square
 
         """
-        return (self.__size * self.__size)
+        return (self.__size ** 2)
 
     def my_print(self):
         """Prints a square with the character '#' """
