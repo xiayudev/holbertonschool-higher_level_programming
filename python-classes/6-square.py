@@ -44,9 +44,9 @@ class Square:
             value (tuple): The position of the square
 
         """
-        value_1 = isinstance(value[0], int)
-        value_2 = isinstance(value[1], int)
-        if not value_1 or not value_2 or len(value) != 2:
+        val_1 = isinstance(value[0], int)
+        val_2 = isinstance(value[1], int)
+        if not val_1 or not val_2 or len(value) != 2 or type(value) != tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
