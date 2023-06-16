@@ -1,0 +1,84 @@
+# The ``0-add_integer`` module ::
+=====================================
+
+# Import ``add_integer`` function
+----------------------
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+# Add two integers, both positives
+-----------------------
+>>> add_integer(4, 5)
+9
+
+# Add two integers, one negative
+-----------------------
+>>> add_integer(4, -5)
+-1
+
+# Add two integers, both negatives
+-----------------------
+>>> add_integer(-4, -5)
+-9
+
+# Add two numbers, one float
+-----------------------
+>>> add_integer(float(2.1), 5)
+7
+
+# Set the first argument of type str
+-----------------------
+>>> add_integer("4", 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+# Set the second argument of type str
+-----------------------
+>>> add_integer(4, "5")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+# Set both arguments of type str
+-----------------------
+>>> add_integer("4", "5")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+# Set the second argument of type str
+-----------------------
+>>> add_integer(4, "5")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+# Set the first argument to None
+-----------------------
+>>> add_integer(None, 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+# Set the first argument to inf
+-----------------------
+>>> add_integer(float("inf"), 5)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+# Set the first argument to -inf
+-----------------------
+>>> add_integer(float("-inf"), 5)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+
+# Set the first argument to NaN
+-----------------------
+>>> add_integer(float("NaN"), 5)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
