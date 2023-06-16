@@ -5,7 +5,6 @@
 ----------------------
 >>> add_integer = __import__('0-add_integer').add_integer
 
-
 # Add two integers, both positives
 -----------------------
 >>> add_integer(4, 5)
@@ -25,6 +24,11 @@
 -----------------------
 >>> add_integer(float(2.1), 5)
 7
+
+# Add two numbers, one float
+-----------------------
+>>> add_integer(float(2.1), float(6.3))
+8
 
 # Set the first argument of type str
 -----------------------
@@ -81,4 +85,25 @@ OverflowError: cannot convert float infinity to integer
 Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer
+
+# Set the first argument to tuple
+-----------------------
+>>> add_integer((4, 5), 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+# Set the first argument to list
+-----------------------
+>>> add_integer([4, 5], 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+# Set the first argument to boolean
+-----------------------
+>>> add_integer(True, 5)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
