@@ -21,4 +21,4 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(Exception, max_integer("Hola"))
         self.assertRaises(Exception, max_integer, [4, None, "3"])
         self.assertRaises(Exception, max_integer((4, 5, 6, 7)))
-        self.assertRaises(Exception, max_integer, [{4:2, 2:1}, (1, 2), 5])
+        self.assertRaises(Exception, max_integer, [{4: 2, 2: 1}, (1, 2), 5])
