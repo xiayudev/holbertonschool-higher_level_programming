@@ -47,3 +47,18 @@ Traceback (most recent call last):
 ...
 TypeError: text_indentation() takes 1 positional argument but 2 were given
 
+# Passing only spaces
+-----------------------
+>>> text_indentation("     ")
+<BLANKLINE>
+
+# Passing just delimiters
+-----------------------
+>>> text_indentation("     .     ?     :")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+:
+<BLANKLINE>
+
