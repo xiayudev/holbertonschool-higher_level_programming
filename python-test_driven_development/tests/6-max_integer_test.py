@@ -19,3 +19,4 @@ class TestMaxInteger(unittest.TestCase):
         """Test for assertion raises"""
         self.assertRaises(TypeError, max_integer, None)
         self.assertRaises(Exception, max_integer("Hola"))
+        self.assertRaises(Exception, max_integer, [4, None, "3"])
