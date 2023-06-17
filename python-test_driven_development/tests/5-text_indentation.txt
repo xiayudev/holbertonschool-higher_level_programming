@@ -1,0 +1,49 @@
+# The ``5-text_indentation`` module ::
+=====================================
+
+# Import ``5-text_iondentation`` function
+----------------------
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Add two integers, both positives
+-----------------------
+>>> text = """Hello, how are you doing? I am great and You? I am OK, Thank you. \
+... I want this things: Pepsi and a little water."""
+>>> text_indentation(text)
+Hello, how are you doing?
+<BLANKLINE>
+I am great and You?
+<BLANKLINE>
+I am OK, Thank you.
+<BLANKLINE>
+I want this things:
+<BLANKLINE>
+Pepsi and a little water.
+<BLANKLINE>
+
+# Passing a string with no delimiters
+-----------------------
+>>> text_indentation("Hi there, This is a sentence with no signs")
+Hi there, This is a sentence with no signs
+
+# Passing a number
+-----------------------
+>>> text_indentation(5)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+# Passing nothing
+-----------------------
+>>> text_indentation()
+Traceback (most recent call last):
+...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+# Passing two arguments
+-----------------------
+>>> text_indentation("Hi. I see you tomorrow? OK let it go.", "This is the second. Thanks?")
+Traceback (most recent call last):
+...
+TypeError: text_indentation() takes 1 positional argument but 2 were given
+
