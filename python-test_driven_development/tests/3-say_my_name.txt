@@ -1,0 +1,45 @@
+# The ``3-say_my_name`` module ::
+=====================================
+
+# Import ``3-say_my_name`` function
+----------------------
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Passing two strings
+-----------------------
+>>> say_my_name("Noah", "Lin")
+My name is Noah Lin
+
+# No passing second argument
+-----------------------
+>>> say_my_name("Noah")
+My name is Noah 
+
+# Passing a number to the second argument
+-----------------------
+>>> say_my_name("Noah", 5)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+# Passing a number to the first argument
+-----------------------
+>>> say_my_name(5, "Lin")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+# Passing no first argument
+-----------------------
+>>> say_my_name( , "Lin")
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+# Passing None to first Argument
+-----------------------
+>>> say_my_name(None, "Lin")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
