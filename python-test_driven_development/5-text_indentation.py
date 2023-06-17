@@ -30,7 +30,9 @@ def text_indentation(text):
             print(f"{new}", end="\n\n")
             new = str()
             continue
+        flag = 0
         new += lett
 
     if not flag:
-        print(f"{new}")
+        new = new.strip()
+        print(f"{new}", end="")
