@@ -1,0 +1,51 @@
+# The ``1-my_list`` module ::
+=====================================
+
+# Import ``1-my_list`` function
+----------------------
+>>> MyList = __import__('1-my_list').MyList
+
+# Add positive items to the list and print sorted
+-----------------------
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(3)
+>>> my_list.append(2)
+>>> my_list.print_sorted()
+[1, 2, 3, 4]
+
+# Add negative items to the list and print sorted
+-----------------------
+>>> my_list = MyList()
+>>> my_list.append(-1)
+>>> my_list.append(-4)
+>>> my_list.append(3)
+>>> my_list.append(-2)
+>>> my_list.print_sorted()
+[-4, -2, -1, 3]
+
+# Add value None and print sorted
+-----------------------
+>>> my_list = MyList()
+>>> my_list.append(2)
+>>> my_list.append(None)
+>>> my_list.append(1)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+# Add value string and print sorted
+-----------------------
+>>> my_list = MyList()
+>>> my_list.append("2")
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(3)
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'int' and 'str'
+
