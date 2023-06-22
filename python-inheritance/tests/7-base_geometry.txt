@@ -27,6 +27,14 @@ Traceback (most recent call last):
 ...
 ValueError: height must be greater than 0
 
+# Pass zero
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", 5.2)
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
 # Pass negative value
 -----------------------
 >>> bg = BaseGeometry()
@@ -122,4 +130,3 @@ TypeError: height must be an integer
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
-
