@@ -1,0 +1,45 @@
+# The ``7-base_geometry`` module ::
+=====================================
+
+# Import ``7-base_geometry`` function
+----------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+# Call the area method
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+# Pass an integer value
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", 5)
+
+# Pass zero
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", 0)
+Traceback (most recent call last):
+...
+ValueError: height must be greater than 0
+
+# Pass negative value
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", -5)
+Traceback (most recent call last):
+...
+ValueError: height must be greater than 0
+
+# Pass non integer value
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", "5")
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
