@@ -55,3 +55,15 @@ Traceback (most recent call last):
 ...
 TypeError: '<' not supported between instances of 'int' and 'str'
 
+# Pass an argument to print_sorted and print it
+-----------------------
+>>> my_list = MyList()
+>>> my_list.append(5)
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(3)
+>>> my_list.print_sorted(5)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+
