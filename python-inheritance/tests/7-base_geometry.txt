@@ -83,3 +83,19 @@ Traceback (most recent call last):
 ...
 TypeError: height must be an integer
 
+# Pass a NaN
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", float("NaN"))
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
+# Pass a inf
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", float("inf"))
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
