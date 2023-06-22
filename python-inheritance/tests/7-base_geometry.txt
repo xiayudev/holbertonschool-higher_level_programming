@@ -83,19 +83,43 @@ Traceback (most recent call last):
 ...
 TypeError: height must be an integer
 
-# Pass a NaN
+# Pass a boolean
 -----------------------
 >>> bg = BaseGeometry()
->>> bg.integer_validator("height", float("NaN"))
+>>> bg.integer_validator("height", (1, 2))
 Traceback (most recent call last):
 ...
 TypeError: height must be an integer
 
-# Pass a inf
+# Pass a boolean
 -----------------------
 >>> bg = BaseGeometry()
->>> bg.integer_validator("height", float("inf"))
+>>> bg.integer_validator("height", {3: 1, 5: 8})
 Traceback (most recent call last):
 ...
 TypeError: height must be an integer
+
+# Pass a boolean
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", {3, 1, 5})
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
+# Pass a boolean
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", None)
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
+
+# Pass a boolean
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator(None)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
 
