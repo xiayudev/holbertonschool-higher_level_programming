@@ -51,7 +51,7 @@ Traceback (most recent call last):
 ...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-# Pass 1 arguments
+# Pass 1 argument
 -----------------------
 >>> bg = BaseGeometry()
 >>> bg.integer_validator("height")
@@ -66,4 +66,20 @@ TypeError: integer_validator() missing 1 required positional argument: 'value'
 Traceback (most recent call last):
 ...
 TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+# Pass 1 argument to area method
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.area(2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+
+# Pass a boolean
+-----------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("height", True)
+Traceback (most recent call last):
+...
+TypeError: height must be an integer
 
