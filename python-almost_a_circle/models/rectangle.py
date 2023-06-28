@@ -32,6 +32,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        """Setter for the width of the Rectangle"""
         pass
 
     @property
@@ -41,20 +42,25 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        """Setter for the height of the Rectangle"""
         pass
 
     @property
     def x(self):
+        """Getter for x position"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Setter for x position"""
         pass
 
     @property
     def y(self):
+        """getter for y position"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """Setter for y position"""
         pass
