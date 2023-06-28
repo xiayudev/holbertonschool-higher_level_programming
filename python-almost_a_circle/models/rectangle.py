@@ -90,3 +90,12 @@ class Rectangle(Base):
         for i in range(self.__height):
             print("#" * self.__width, end="")
             print()
+
+    def __str__(self):
+        """Return human readable output for instances"""
+        id_ = self.id
+        x_ = self.__x
+        y_ = self.__y
+        width_ = self.__width
+        height_ = self.__height
+        return f"[Rectangle] ({id_}) {x_}/{y_} - {width_}/{height_}"
