@@ -19,10 +19,10 @@ class Rectangle(Base):
             y (int): Position y
 
         """
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
@@ -33,7 +33,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """Setter for the width of the Rectangle"""
-        pass
+        self.__width = value
 
     @property
     def height(self):
@@ -43,7 +43,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """Setter for the height of the Rectangle"""
-        pass
+        self.__height = value
 
     @property
     def x(self):
@@ -53,7 +53,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Setter for x position"""
-        pass
+        self.__x = value
 
     @property
     def y(self):
@@ -63,4 +63,4 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """Setter for y position"""
-        pass
+        self.__y = value
