@@ -20,11 +20,10 @@ class Square(Rectangle):
 
         """
         super().__init__(size, size, x, y, id)
-        self.size = size
 
     def __str__(self):
         """Return human readable string"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
 
     @property
     def size(self):
