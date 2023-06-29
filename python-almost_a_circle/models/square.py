@@ -19,9 +19,20 @@ class Square(Rectangle):
             id (int): The id of the Square
 
         """
-        super().__init__(size, size, x, y, id)
         self.size = size
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """Return human readable string"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    @property
+    def size(self):
+        """Getter for the size of the Square"""
+        return self.__width
+
+    @size.setter
+    def size(self, value):
+        """Setter for validation of size"""
+        self.__width = value
+        self.__height = value
