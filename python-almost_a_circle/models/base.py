@@ -4,6 +4,7 @@
 
 
 import json
+from os.path import exists
 
 
 class Base:
@@ -61,3 +62,15 @@ class Base:
             rec = Square(4)
         rec.update(**dictionary)
         return rec
+
+    @classmethod
+    def load_from_file(cls):
+        """Return a list of instances"""
+        filename = f"{cls.__name__}.json"
+        file_exist = exists(filename)
+        if file_exist:
+            with open(f"{filename}", "r", encoding="utf-8") as f:
+                list_objs = cls.from_json_string(f.read())
+                return [cls.create(**obj) for obj in list_objs]
+        else:
+            return []
