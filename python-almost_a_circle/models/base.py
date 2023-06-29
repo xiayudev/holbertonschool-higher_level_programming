@@ -52,6 +52,12 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Return an instance with all attributes already set"""
-        r1 = cls(4, 5)
-        r1.update(**dictionary)
-        return r1
+        from models.rectangle import Rectangle
+        from models.square import Square
+        rec = None
+        if Rectangle:
+            rec = cls(4, 5)
+        elif Square:
+            rec = cls(4)
+        rec.update(**dictionary)
+        return rec
