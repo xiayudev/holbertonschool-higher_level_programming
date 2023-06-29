@@ -3,6 +3,9 @@
 """
 
 
+import json
+
+
 class Base:
     """A class that serves as a base class"""
     __nb_objects = 0
@@ -19,3 +22,10 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Return a JSON string representation"""
+        if list_dictionaries is None:
+            return '"[]"'
+        return json.dumps(list_dictionaries)
