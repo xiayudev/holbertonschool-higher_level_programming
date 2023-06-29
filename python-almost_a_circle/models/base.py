@@ -55,9 +55,9 @@ class Base:
         from models.rectangle import Rectangle
         from models.square import Square
         rec = None
-        if Rectangle:
+        if cls is Rectangle:
             rec = Rectangle(4, 5)
-        elif Square:
+        elif cls is Square:
             rec = Square(4)
         rec.update(**dictionary)
         return rec
