@@ -123,4 +123,6 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle"""
-        return self.__dict__
+        list_ = ["id", "width", "height", "x", "y"]
+        return {list_[i]: getattr(self, list_[i])
+                for i in range(len(list_)) if hasattr(self, list_[i])}
