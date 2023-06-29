@@ -104,8 +104,19 @@ class Rectangle(Base):
         height_ = self.__height
         return f"[Rectangle] ({id_}) {x_}/{y_} - {width_}/{height_}"
 
-    def update(self, *args):
-        """Assign an argument to each attribute"""
-        list_ = ["id", "width", "height", "x", "y"]
-        for k, v in zip(list_, args):
-            setattr(self, k, v)
+    def update(self, *args, **kwargs):
+        """Assign an argument to each attribute
+
+        If *args exists, **kwargs must be skipped
+
+        Args:
+            *args (tuple): Non-keyworded variable length arguments tuple
+            **kwargs (dict): Keyworded variable length arguments dict
+        """
+        if args:
+            list_ = ["id", "width", "height", "x", "y"]
+            for k, v in zip(list_, args):
+                setattr(self, k, v)
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
