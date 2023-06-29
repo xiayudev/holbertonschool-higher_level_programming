@@ -35,3 +35,13 @@ class Square(Rectangle):
         """Setter for validation of size"""
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """Assign attributes according to arguments"""
+        if args:
+            list_ = ["id", "size", "x", "y"]
+            for k, v in zip(list_, args):
+                setattr(self, k, v)
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
