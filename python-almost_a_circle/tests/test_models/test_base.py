@@ -20,5 +20,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.to_json_string(None), "[]")
         self.assertEqual(b1.to_json_string([{'width': 4, 'height': 5}]), js)
 
-if __name__=='__main__':
-	unittest.main()
+
+if __name__ == '__main__':
+    unittest.main()
