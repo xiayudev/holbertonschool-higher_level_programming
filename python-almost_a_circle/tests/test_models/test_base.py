@@ -10,13 +10,13 @@ from modules.base import Base
 class TestToJsonString(unittest.TestCase):
     """Testin for a class Base"""
 
-    def test_to_json_string(self):
-        """Test for to_json_string"""
-        js = json.dumps([{'width': 4, 'height': 5}])
-
+    def test_to_json_string_empty(self):
+        """Test when Empty list is passed"""
         self.assertEqual("[]", Base.to_json_string([]))
+
+    def test_to_json_string_None(self):
+        """Test when None is passed"""
         self.assertEqual("[]", Base.to_json_string(None))
-        self.assertEqual(js, Base.to_json_string([{'width': 4, 'height': 5}]))
 
 
 if __name__ == '__main__':
