@@ -4,7 +4,7 @@
 
 import unittest
 import json
-from modules.base import Base
+from models.base import Base
 
 
 class TestToJsonString(unittest.TestCase):
