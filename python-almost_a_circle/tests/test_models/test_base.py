@@ -18,9 +18,14 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         b2 = Base(12)
         b3 = Base()
+        b4 = Base(None)
         self.assertEqual(13, b1.id)
         self.assertEqual(12, b2.id)
         self.assertEqual(14, b3.id)
+        self.assertEqual(15, b4.id)
+        self.assertEqual(Base("3").id, "3")
+        with self.assertRaises(AttributeError):
+            print(Base(22).__nb_objects)
 
     def test_to_json_string(self):
         """Test for the to_json_string method"""

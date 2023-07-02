@@ -56,7 +56,7 @@ class TestRectangle(unittest.TestCase):
         with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
             print(r1)
         assert fake_stdout.getvalue() == rst
-        r2 = Rectangle(10, 11, 12)
+        r2 = Rectangle(10, 11, 12, 0, 18)
         rst_2 = "[Rectangle] (18) 12/0 - 10/11\n"
         with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
             print(r2)
@@ -106,6 +106,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, r2.height)
         self.assertFalse(r1 == r2)
         self.assertFalse(r1 is r2)
+        self.assertEqual(r1.id, r2.id)
 
     def test_display(self):
         """Test for the display method"""
