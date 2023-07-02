@@ -21,7 +21,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.width, s1.height)
         self.assertEqual(s1.x, 0)
         self.assertEqual(s1.y, 0)
-        self.assertEqual(s1.id, 26)
+        self.assertEqual(s1.id, 28)
         self.assertRaises(TypeError, Square, "2")
         self.assertRaises(TypeError, Square, 2, "1")
         self.assertRaises(TypeError, Square, 2, 1, "1")
@@ -34,10 +34,42 @@ class TestSquare(unittest.TestCase):
     def test_str(self):
         """Test for the __str__ method"""
         s1 = Square(10)
-        s1_print = "[Square] (24) 0/0 - 10\n"
+        s1_print = "[Square] (26) 0/0 - 10\n"
         with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
             print(s1)
         assert fake_stdout.getvalue() == s1_print
+
+    def test_update(self):
+        """Test for the update method"""
+        # test for *args
+        r1 = Square(20, 20, 20)
+        r1.update(7)
+        self.assertEqual(7, r1.id)
+        self.assertEqual(20, r1.width)
+        self.assertEqual(20, r1.height)
+        self.assertEqual(20, r1.x)
+        self.assertEqual(20, r1.y)
+        r1.update(7, 10, 13, 16, 19)
+        self.assertEqual(7, r1.id)
+        self.assertEqual(10, r1.width)
+        self.assertEqual(10, r1.height)
+        self.assertEqual(13, r1.x)
+        self.assertEqual(16, r1.y)
+
+        # Test for **kwargs
+        r2 = Square(20, 20, 20, 20)
+        r2.update(x=2)
+        self.assertEqual(r2.x, 2)
+        self.assertEqual(r2.y, 20)
+        self.assertEqual(r2.width, 20)
+        self.assertEqual(r2.height, 20)
+        self.assertEqual(r2.id, 20)
+        r2.update(x=3, id=100, height=7, y=4, width=10)
+        self.assertEqual(r2.x, 3)
+        self.assertEqual(r2.y, 4)
+        self.assertEqual(r2.width, 10)
+        self.assertEqual(r2.height, 7)
+        self.assertEqual(r2.id, 100)
 
     def test_to_dictionary(self):
         """Test for the to_dictionary method"""

@@ -21,7 +21,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(4, r1.height)
         self.assertEqual(0, r1.x)
         self.assertEqual(0, r1.y)
-        self.assertEqual(19, r1.id)
+        self.assertEqual(21, r1.id)
         self.assertRaises(TypeError, Rectangle, "3", 4)
         self.assertRaises(TypeError, Rectangle, 3, "4")
         self.assertRaises(ValueError, Rectangle, -1, 3)
@@ -34,7 +34,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(5, r2.height)
         self.assertEqual(2, r2.x)
         self.assertEqual(1, r2.y)
-        self.assertEqual(21, r2.id)
+        self.assertEqual(23, r2.id)
         self.assertRaises(TypeError, Rectangle, 4, 5, "2", 1)
         self.assertRaises(TypeError, Rectangle, 4, 5, 2, "1")
         self.assertRaises(ValueError, Rectangle, 4, 5, -2, 1)
@@ -57,7 +57,7 @@ class TestRectangle(unittest.TestCase):
             print(r1)
         assert fake_stdout.getvalue() == rst
         r2 = Rectangle(10, 11, 12)
-        rst_2 = "[Rectangle] (16) 12/0 - 10/11\n"
+        rst_2 = "[Rectangle] (18) 12/0 - 10/11\n"
         with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
             print(r2)
         assert fake_stdout.getvalue() == rst_2
@@ -86,7 +86,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r2.y, 20)
         self.assertEqual(r2.width, 20)
         self.assertEqual(r2.height, 20)
-        self.assertEqual(r2.id, 23)
+        self.assertEqual(r2.id, 25)
         r2.update(x=3, id=100, height=7, y=4, width=10)
         self.assertEqual(r2.x, 3)
         self.assertEqual(r2.y, 4)
@@ -106,6 +106,12 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, r2.height)
         self.assertFalse(r1 == r2)
         self.assertFalse(r1 is r2)
+
+    def test_display(self):
+        """Test for the display method"""
+        r1 = Rectangle(3, 2)
+        r2 = Rectangle(3, 2)
+        self.assertEqual(r1.display(), r2.display())
 
     def test_pycodestyle_conformance(self):
         """Test for PEP8."""
