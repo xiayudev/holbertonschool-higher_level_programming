@@ -33,8 +33,8 @@ class TestSquare(unittest.TestCase):
 
     def test_str(self):
         """Test for the __str__ method"""
-        s1 = Square(10)
-        s1_print = "[Square] (26) 0/0 - 10\n"
+        s1 = Square(10, 0, 0, 50)
+        s1_print = "[Square] (50) 0/0 - 10\n"
         with mock.patch("sys.stdout", new=io.StringIO()) as fake_stdout:
             print(s1)
         assert fake_stdout.getvalue() == s1_print

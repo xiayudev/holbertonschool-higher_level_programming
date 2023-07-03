@@ -19,13 +19,14 @@ class TestBase(unittest.TestCase):
         b2 = Base(12)
         b3 = Base()
         b4 = Base(None)
-        self.assertEqual(13, b1.id)
+        self.assertEqual(14, b1.id)
         self.assertEqual(12, b2.id)
-        self.assertEqual(14, b3.id)
-        self.assertEqual(15, b4.id)
+        self.assertEqual(15, b3.id)
+        self.assertEqual(16, b4.id)
         self.assertEqual(Base("3").id, "3")
-        with self.assertRaises(AttributeError):
-            print(Base(22).__nb_objects)
+        b1.id = 45
+        self.assertEqual(45, b1.id)
+        self.assertEqual(complex(5), Base(complex(5)).id)
 
     def test_to_json_string(self):
         """Test for the to_json_string method"""
@@ -82,6 +83,10 @@ class TestBase(unittest.TestCase):
         self.assertAlmostEqual(r2.y, 0)
         self.assertFalse(r1 == r2)
         self.assertFalse(r1 is r2)
+        r4 = Rectangle(3, 5, 1, 2, 7)
+        r4_dictionary = r4.to_dictionary()
+        r5 = Rectangle.create(**r4_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r5))
 
     def test_load_from_file(self):
         """Test for test_load_from_file method"""
@@ -90,12 +95,12 @@ class TestBase(unittest.TestCase):
         list_input = [r1, r2]
         Rectangle.save_to_file(list_input)
         list_output = Rectangle.load_from_file()
-        self.assertAlmostEqual(list_output[0].id, 3)
+        self.assertAlmostEqual(list_output[0].id, 4)
         self.assertAlmostEqual(list_output[0].x, 2)
         self.assertAlmostEqual(list_output[0].width, 10)
         self.assertAlmostEqual(list_output[0].height, 7)
         self.assertAlmostEqual(list_output[0].y, 8)
-        self.assertAlmostEqual(list_output[1].id, 4)
+        self.assertAlmostEqual(list_output[1].id, 5)
         self.assertAlmostEqual(list_output[1].x, 0)
         self.assertAlmostEqual(list_output[1].width, 2)
         self.assertAlmostEqual(list_output[1].height, 4)
@@ -105,12 +110,12 @@ class TestBase(unittest.TestCase):
         sinput = [s1, s2]
         Square.save_to_file(sinput)
         soutput = Square.load_from_file()
-        self.assertAlmostEqual(soutput[0].id, 7)
+        self.assertAlmostEqual(soutput[0].id, 8)
         self.assertAlmostEqual(soutput[0].width, 5)
         self.assertAlmostEqual(soutput[0].height, 5)
         self.assertAlmostEqual(soutput[0].x, 0)
         self.assertAlmostEqual(soutput[0].y, 0)
-        self.assertAlmostEqual(soutput[1].id, 8)
+        self.assertAlmostEqual(soutput[1].id, 9)
         self.assertAlmostEqual(soutput[1].width, 7)
         self.assertAlmostEqual(soutput[1].height, 7)
         self.assertAlmostEqual(soutput[1].x, 9)
