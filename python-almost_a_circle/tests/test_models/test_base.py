@@ -71,6 +71,10 @@ class TestBase(unittest.TestCase):
             self.assertEqual(f.readline(), '[{}, {}]')
 
         # Testing with Square
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+
         s1 = Square(3)
         s2 = Square(5)
         Square.save_to_file([s1, s2])
@@ -82,10 +86,6 @@ class TestBase(unittest.TestCase):
             self.assertEqual(f.readline(), str_json)
 
         Square.save_to_file(None)
-        with open("Square.json", "r") as f:
-            self.assertEqual(f.readline(), '[]')
-
-        Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual(f.readline(), '[]')
 
