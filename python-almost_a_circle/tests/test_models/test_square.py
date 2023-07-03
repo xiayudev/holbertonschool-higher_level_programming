@@ -71,6 +71,25 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r2.height, 7)
         self.assertEqual(r2.id, 100)
 
+    def test_save_to_file(self):
+        """Test for save to file"""
+        s1 = Square(3)
+        s2 = Square(5)
+        Square.save_to_file([s1, s2])
+        file_1 = s1.to_dictionary()
+        file_2 = s2.to_dictionary()
+        file_ = [file_1, file_2]
+        str_json = Rectangle.to_json_string(file_)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
+
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+
     def test_to_dictionary(self):
         """Test for the to_dictionary method"""
         s1 = Square(5, 3, 1)

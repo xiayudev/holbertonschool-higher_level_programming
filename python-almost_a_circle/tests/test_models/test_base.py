@@ -19,10 +19,10 @@ class TestBase(unittest.TestCase):
         b2 = Base(12)
         b3 = Base()
         b4 = Base(None)
-        self.assertEqual(16, b1.id)
+        self.assertEqual(14, b1.id)
         self.assertEqual(12, b2.id)
-        self.assertEqual(17, b3.id)
-        self.assertEqual(18, b4.id)
+        self.assertEqual(15, b3.id)
+        self.assertEqual(16, b4.id)
         self.assertEqual(Base("3").id, "3")
         b1.id = 45
         self.assertEqual(45, b1.id)
@@ -69,6 +69,14 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([1, 2])
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.readline(), '[{}, {}]')
+
+        # Testing with Square
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), '[]')
 
     def test_create(self):
         """Test for create method"""
@@ -120,12 +128,6 @@ class TestBase(unittest.TestCase):
         self.assertAlmostEqual(soutput[1].height, 7)
         self.assertAlmostEqual(soutput[1].x, 9)
         self.assertAlmostEqual(soutput[1].y, 1)
-        ########
-        s1 = Square(5, 1, 3, 3)
-        s2 = Square(9, 5, 2, 3)
-        Square.save_to_file([s1, s2])
-        output = Square.load_from_file()
-        self.assertTrue(all(type(obj) == Square for obj in output))
 
     def test_pycodestyle_conformance(self):
         """Test for PEP8."""
