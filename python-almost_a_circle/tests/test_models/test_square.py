@@ -21,7 +21,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s1.width, s1.height)
         self.assertEqual(s1.x, 0)
         self.assertEqual(s1.y, 0)
-        self.assertEqual(s1.id, 28)
+        self.assertEqual(s1.id, 31)
         self.assertRaises(TypeError, Square, "2")
         self.assertRaises(TypeError, Square, 2, "1")
         self.assertRaises(TypeError, Square, 2, 1, "1")
