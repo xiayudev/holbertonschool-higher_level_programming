@@ -19,10 +19,10 @@ class TestBase(unittest.TestCase):
         b2 = Base(12)
         b3 = Base()
         b4 = Base(None)
-        self.assertEqual(14, b1.id)
+        self.assertEqual(16, b1.id)
         self.assertEqual(12, b2.id)
-        self.assertEqual(15, b3.id)
-        self.assertEqual(16, b4.id)
+        self.assertEqual(17, b3.id)
+        self.assertEqual(18, b4.id)
         self.assertEqual(Base("3").id, "3")
         b1.id = 45
         self.assertEqual(45, b1.id)
@@ -71,9 +71,20 @@ class TestBase(unittest.TestCase):
             self.assertEqual(f.readline(), '[{}, {}]')
 
         # Testing with Square
+        s1 = Square(3)
+        s2 = Square(5)
+        Square.save_to_file([s1, s2])
+        file_1 = s1.to_dictionary()
+        file_2 = s2.to_dictionary()
+        file_ = [file_1, file_2]
+        str_json = Square.to_json_string(file_)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.readline(), str_json)
+
         Square.save_to_file(None)
         with open("Square.json", "r") as f:
             self.assertEqual(f.readline(), '[]')
+
         Square.save_to_file([])
         with open("Square.json", "r") as f:
             self.assertEqual(f.readline(), '[]')
